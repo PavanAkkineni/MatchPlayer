@@ -149,18 +149,19 @@ python ./evaluation/scoer_gpt.py ./inference_result/sample.csv
 - [x] Evaluation Code
 - [x] Release Demo
 
-## Citation
-If you use this code for your research or project, please cite:
-
-      @inproceedings{rao2024matchtimeautomaticsoccergame,
-         title     = {MatchTime: Towards Automatic Soccer Game Commentary Generation},
-         author    = {Rao, Jiayuan and Wu, Haoning and Liu, Chang and Wang, Yanfeng and Xie, Weidi},
-         booktitle = {Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing},
-         year      = {2024}
-      }
-
-## Acknowledgements
-Many thanks to the code bases from [Video-LLaMA](https://github.com/DAMO-NLP-SG/Video-LLaMA) and source data from [SoccerNet-Caption](https://arxiv.org/abs/2304.04565).
-
-## Contact
-If you have any questions, please feel free to contact jy_rao@sjtu.edu.cn or haoningwu3639@gmail.com.
+# for classifying an event in the game.
+python ./models/simple_classifier.py
+# for infering simple_classifer model to classify events from a single video
+python ./models/simple_classifier_inference.py
+# for counting player face appearance in a frame comparing to the database of player faces using YOLOv11n+FaceNet+cosine similiarity
+python ./models/simple_face_count.py
+#  for counting player face appearance in a frame comparing to the database of player faces using YOLOv11n+deepface
+python ./models/simple_face_count_deepface.py
+# End Term - new pipeline for face detection and saving it according to filtered confidence scores
+python /work/users/a/k/akkineni/Matchtime/MatchTime/CAFace_App/caface-master/demo/newpipe.py
+# New pipeline for Aggolomerative Clustering + face alignment + CA Face + Player Identification 
+python /work/users/a/k/akkineni/Matchtime/MatchTime/CAFace_App/caface-master/demo/newmain.py
+# Ocr based name + jersey number extraction for player identification
+python /work/users/a/k/akkineni/Matchtime/MatchTime/CAFace_App/caface-master/demo/ocr.py
+# Event classification using motion embeddings + visual encodings 
+python /work/users/a/k/akkineni/Matchtime/MatchTime/CAFace_App/caface-master/demo/disambiguity.py
